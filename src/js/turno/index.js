@@ -5,14 +5,14 @@ import DataTable from "datatables.net-bs5";
 import { lenguaje } from "../lenguaje";
 
 
-const formulario = document.getElementById('formPuesto')
-const tabla = document.getElementById('tablaPuestos')
+const formulario = document.getElementById('formTurno')
+const tabla = document.getElementById('tablaTurnos')
 const btnGuardar = document.getElementById('btnGuardar')
 const btnModificar = document.getElementById('btnModificar')
 const btnCancelar = document.getElementById('btnCancelar')
 
 let contador = 1;
-const datatable = new DataTable('#tablaPuestos', {
+const datatable = new DataTable('#tablaTurnos', {
     data: null,
     language: lenguaje,
     pageLength: '15',
@@ -20,7 +20,7 @@ const datatable = new DataTable('#tablaPuestos', {
     columns: [
         {
             title: 'No.',
-            data: 'puesto_id',
+            data: 'turno_id',
             width: '2%',
             render: (data, type, row, meta) => {
                 // console.log(meta.ro);
@@ -28,34 +28,30 @@ const datatable = new DataTable('#tablaPuestos', {
             }
         },
         {
-            title: 'Nombre del Puesto',
-            data: 'puesto_nombre'
+            title: 'Empleado',
+            data: 'turno_empleado'
         },
         {
-            title: 'Descripción del Puesto',
-            data: 'puesto_descripcion'
+            title: 'Puesto',
+            data: 'turno_puesto'
         },
         {
-            title: 'Salario del Puesto',
-            data: 'puesto_salario'
+            title: 'Fecha Inicio',
+            data: 'turno_fecha_inicio'
         },
         {
-            title: 'Direccion del Puesto',
-            data: 'puesto_direccion'
-        },
-        {
-            title: 'Cliente',
-            data: 'puesto_cliente'
+            title: 'Fecha Fin',
+            data: 'turno_fecha_fin'
         },
         {
             title: 'Acciones',
-            data: 'puesto_id',
+            data: 'turno_id',
             searchable: false,
             orderable: false,
             render: (data, type, row, meta) => {
                 let html = `
-                <button class='btn btn-warning modificar' data-puesto_id="${data}" data-puesto_nombre="${row.puesto_nombre}" data-puesto_descripcion="${row.puesto_descripcion}" data-puesto_salario="${row.puesto_salario}" data-puesto_direccion="${row.puesto_direccion}" data-puesto_cliente="${row.puesto_cliente}" data-saludo="hola mundo"><i class='bi bi-pencil-square'></i>Modificar</button>
-                <button class='btn btn-danger eliminar' data-puesto_id="${data}">Eliminar</button>
+                <button class='btn btn-warning modificar' data-turno_id="${data}" data-turno_empleado="${row.turno_empleado}" data-turno_puesto="${row.turno_puesto}" data-turno_fecha_inicio="${row.turno_fecha_inicio}" data-turno_fecha_fin="${row.turno_fecha_fin}" data-saludo="hola mundo"><i class='bi bi-pencil-square'></i>Modificar</button>
+                <button class='btn btn-danger eliminar' data-turno_id="${data}">Eliminar</button>
 
                 `
                 return html;
@@ -73,7 +69,7 @@ btnCancelar.disabled = true
 const guardar = async (e) => {
     e.preventDefault()
 
-    if (!validarFormulario(formulario, ['puesto_id'])) {
+    if (!validarFormulario(formulario, ['turno_id'])) {
         Swal.fire({
             title: "Campos vacios",
             text: "Debe llenar todos los campos",
@@ -84,7 +80,7 @@ const guardar = async (e) => {
 
     try {
         const body = new FormData(formulario)
-        const url = "/las_aguilas_prueba/API/puesto/guardar"
+        const url = "/las_aguilas_prueba/API/turno/guardar"
         const config = {
             method: 'POST',
             body
@@ -116,7 +112,7 @@ const guardar = async (e) => {
 
 const buscar = async () => {
     try {
-        const url = "/las_aguilas_prueba/API/puesto/buscar"
+        const url = "/las_aguilas_prueba/API/turno/buscar"
         const config = {
             method: 'GET',
         }
@@ -144,12 +140,11 @@ buscar();
 const traerDatos = (e) => {
     const elemento = e.currentTarget.dataset
 
-    formulario.puesto_id.value = elemento.puesto_id
-    formulario.puesto_nombre.value = elemento.puesto_nombre
-    formulario.puesto_descripcion.value = elemento.puesto_descripcion
-    formulario.puesto_salario.value = elemento.puesto_salario
-    formulario.puesto_direccion.value = elemento.puesto_direccion
-    formulario.puesto_cliente.value = elemento.puesto_cliente
+    formulario.turno_id.value = elemento.turno_id
+    formulario.turno_empleado.value = elemento.turno_empleado
+    formulario.turno_puesto.value = elemento.turno_puesto
+    formulario.turno_fecha_inicio.value = elemento.turno_fecha_inicio
+    formulario.turno_fecha_fin.value = elemento.turno_fecha_fin
     tabla.parentElement.parentElement.style.display = 'none'
 
     btnGuardar.parentElement.style.display = 'none'
@@ -185,7 +180,7 @@ const modificar = async (e) => {
 
     try {
         const body = new FormData(formulario)
-        const url = "/las_aguilas_prueba/API/puesto/modificar"
+        const url = "/las_aguilas_prueba/API/turno/modificar"
         const config = {
             method: 'POST',
             body
@@ -217,7 +212,7 @@ const modificar = async (e) => {
 }
 
 const eliminar = async (e) => {
-    const puesto = e.currentTarget.dataset.puesto_id
+    const puesto = e.currentTarget.dataset.turno_id
     
     
     let confirmacion = await Swal.fire({
@@ -235,8 +230,8 @@ const eliminar = async (e) => {
     if (confirmacion.isConfirmed) {
         try {
             const body = new FormData()
-            body.append('puesto_id', puesto)
-            const url = "/las_aguilas_prueba/API/puesto/eliminar"
+            body.append('turno_id', turno)
+            const url = "/las_aguilas_prueba/API/turno/eliminar"
             const config = {
                 method: 'POST',
                 body
