@@ -212,7 +212,7 @@ const modificar = async (e) => {
 }
 
 const eliminar = async (e) => {
-    const puesto = e.currentTarget.dataset.turno_id
+    const turno = e.currentTarget.dataset.turno_id
     
     
     let confirmacion = await Swal.fire({
