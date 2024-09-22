@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class Cliente extends ActiveRecord
+class Empleado extends ActiveRecord
 {
     protected static $tabla = 'empleado';
     protected static $idTabla = 'emp_id';  

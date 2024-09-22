@@ -34,4 +34,10 @@ class Puesto extends ActiveRecord
         return self::fetchArray($sql);
     }
 
+    public static function buscar()
+    {
+        $sql = "SELECT * FROM puestos where puesto_situacion = 1";
+        return self::fetchArray($sql);
+    }
+
 }
