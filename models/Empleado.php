@@ -6,7 +6,7 @@ class Empleado extends ActiveRecord
 {
     protected static $tabla = 'empleado';
     protected static $idTabla = 'emp_id';  
-    protected static $columnasDB = ['emp_nombre', 'emp_nit'];
+    protected static $columnasDB = ['emp_nombre', 'emp_nit', 'emp_situacion'];
 
     public $emp_id;
     public $emp_nombre;
