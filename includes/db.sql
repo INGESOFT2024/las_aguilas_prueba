@@ -1,13 +1,13 @@
 CREATE TABLE turnos (
     turno_id SERIAL,
-    turno_empleado_id INTEGER,
-    turno_puesto_id INTEGER,
+    turno_empleado INTEGER,
+    turno_puesto INTEGER,
     turno_fecha_inicio DATETIME YEAR TO MINUTE,
     turno_fecha_fin DATETIME YEAR TO MINUTE,
     turno_situacion SMALLINT DEFAULT 1,
     PRIMARY KEY (turno_id),
-    FOREIGN KEY (turno_empleado_id) REFERENCES empleado(emp_id),
-    FOREIGN KEY (turno_puesto_id) REFERENCES puestos(puesto_id)
+    FOREIGN KEY (turno_empleado) REFERENCES empleado(emp_id),
+    FOREIGN KEY (turno_puesto) REFERENCES puestos(puesto_id)
 );
 
 
