@@ -1,13 +1,5 @@
 <?php
 
-puesto_id SERIAL,
-puesto_nombre VARCHAR(50),
-puesto_descripcion VARCHAR(150),
-puesto_salario MONEY (10,2),
-puesto_direccion VARCHAR (100),
-puesto_cliente INTEGER,
-puesto_situacion SMALLINT DEFAULT 1, 
-
 namespace Model;
 
 class Puesto extends ActiveRecord
@@ -32,7 +24,7 @@ class Puesto extends ActiveRecord
         $this->puesto_descripcion = $args['puesto_descripcion'] ?? '';
         $this->puesto_salario = $args['puesto_salario'] ?? 0;
         $this->puesto_direccion = $args['puesto_direccion'] ?? '';
-        $this->puesto_cliente = $args['puesto_cliente'] ?? null;
+        $this->puesto_cliente = $args['puesto_cliente'] ?? '';
         $this->puesto_situacion = $args['puesto_situacion'] ?? 1;
     }
 
