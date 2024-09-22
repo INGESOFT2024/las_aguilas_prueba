@@ -6,7 +6,7 @@ class Cliente extends ActiveRecord
 {
     protected static $tabla = 'clientes';
     protected static $idTabla = 'cliente_id';  
-    protected static $columnasDB = ['cliente_nombre', 'cliente_nit'];
+    protected static $columnasDB = ['cliente_nombre', 'cliente_nit', 'cliente_situacion'];
 
     public $cliente_id;
     public $cliente_nombre;
