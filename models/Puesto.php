@@ -30,7 +30,7 @@ class Puesto extends ActiveRecord
 
     public static function obtenerPuestosconQuery()
     {
-        $sql = "SELECT * FROM puestos where situacion = 1";
+        $sql = "SELECT * FROM puestos where puesto_situacion = 1";
         return self::fetchArray($sql);
     }
 

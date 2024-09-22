@@ -144,7 +144,7 @@ buscar();
 const traerDatos = (e) => {
     const elemento = e.currentTarget.dataset
 
-    formulario.puesto_.value = elemento.puesto_
+    formulario.puesto_id.value = elemento.puesto_id
     formulario.puesto_nombre.value = elemento.puesto_nombre
     formulario.puesto_descripcion.value = elemento.puesto_descripcion
     formulario.puesto_salario.value = elemento.puesto_salario
@@ -174,7 +174,7 @@ const cancelar = () => {
 const modificar = async (e) => {
     e.preventDefault()
 
-    if (!valarFormulario(formulario)) {
+    if (!validarFormulario(formulario)) {
         Swal.fire({
             title: "Campos vacios",
             text: "Debe llenar todos los campos",
@@ -217,7 +217,9 @@ const modificar = async (e) => {
 }
 
 const eliminar = async (e) => {
-    const puesto_ = e.currentTarget.dataset.puesto_id
+    const puesto = e.currentTarget.dataset.puesto_id
+    
+    
     let confirmacion = await Swal.fire({
         icon: 'question',
         title: 'Confirmacion',
@@ -233,7 +235,7 @@ const eliminar = async (e) => {
     if (confirmacion.isConfirmed) {
         try {
             const body = new FormData()
-            body.append('puesto_id', puesto_id)
+            body.append('puesto_id', puesto)
             const url = "/las_aguilas_prueba/API/puesto/eliminar"
             const config = {
                 method: 'POST',

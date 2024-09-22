@@ -11,6 +11,8 @@ $router->setBaseURL('/' . $_ENV['APP_NAME']);
 
 $router->get('/', [AppController::class, 'index']);
 
+
+
 $router->get('/puestos', [PuestoController::class, 'index']);
 $router->get('/API/puesto/buscar', [PuestoController::class, 'buscarAPI']);
 $router->post('/API/puesto/guardar', [PuestoController::class, 'guardarAPI']);

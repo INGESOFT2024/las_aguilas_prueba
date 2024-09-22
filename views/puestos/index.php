@@ -1,3 +1,10 @@
+
+<?php
+use Model\Cliente;
+$cliente = new Cliente($_GET);
+$clientes = $cliente->buscar();
+?>
+
 <h1 class="text-center">Formulario de Puestos</h1>
 <div class="row justify-content-center mb-4">
     <form id="formPuesto" class="border shadow p-4 col-lg-4">
@@ -23,7 +30,7 @@
         <div class="row mb-3">
             <div class="col">
                 <label for="puesto_direccion">Dirección del Puesto</label>
-                <input type="number" name="puesto_direccion" id="puesto_direccion" class="form-control">
+                <input type="text" name="puesto_direccion" id="puesto_direccion" class="form-control">
             </div>
         </div>
         <div class="row mb-3">

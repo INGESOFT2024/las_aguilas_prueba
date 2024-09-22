@@ -11,6 +11,7 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'public/build')
   },
+  
   plugins: [
     new MiniCssExtractPlugin({
         filename: 'styles.css'
