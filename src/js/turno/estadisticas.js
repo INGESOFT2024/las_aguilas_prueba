@@ -33,7 +33,7 @@ const getEstadisticas = async () => {
             chartTurnos.data.datasets[0].backgroundColor = [];
 
             data.forEach(r => {
-                chartTurnos.data.labels.push(r.cliente);
+                chartTurnos.data.labels.push(r.turnos);
                 chartTurnos.data.datasets[0].data.push(r.cantidad);
                 chartTurnos.data.datasets[0].backgroundColor.push(generateRandomColor());
             });
