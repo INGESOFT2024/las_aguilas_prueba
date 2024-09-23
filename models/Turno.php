@@ -32,4 +32,13 @@ class Turno extends ActiveRecord
         return self::fetchArray($sql);
     }
 
+    public static function obtenerTurnosPorPuesto() {
+        $sql = 'SELECT puesto_nombre AS puesto, COUNT(turno_id) AS cantidad_turnos
+                FROM turnos
+                JOIN puestos ON turno_puesto = puesto_id
+                GROUP BY puesto_nombre
+                ORDER BY cantidad_turnos DESC';
+        return self::fetchArray($sql);
+    }
+
 }

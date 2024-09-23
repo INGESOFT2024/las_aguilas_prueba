@@ -122,5 +122,5 @@ class TurnoController
                 'detalle' => $e->getMessage(),
             ]);
         }
-    }
+    }    
 }

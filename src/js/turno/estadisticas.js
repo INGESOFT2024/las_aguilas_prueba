@@ -1,14 +1,14 @@
 import { Dropdown } from "bootstrap";
 import { Chart } from "chart.js/auto";
 
-const canvas = document.getElementById('chartPuestos');
+const canvas = document.getElementById('chartTurnosPuesto');
 const ctx = canvas.getContext('2d');
-const btnactualizar = document.getElementById('actualizar');
+const btnActualizar = document.getElementById('actualizarTurnos');
 
 const data = {
     labels: [],
     datasets: [{
-        label: 'puestos',
+        label: 'Turnos',
         data: [],
         borderWidth: 5,
         backgroundColor: []
@@ -20,8 +20,8 @@ const chartTurnos = new Chart(ctx, {
     data: data,
 });
 
-const getEstadisticas = async () => {
-    const url = '/las_aguilas_prueba/API/detalle/estadisticas';
+const getEstadisticasTurnos = async () => {
+    const url = '/las_aguilas_prueba/API/detalle/turnosPorPuesto';
     const config = { method: "GET" };
     const response = await fetch(url, config);
     const data = await response.json();
@@ -33,7 +33,7 @@ const getEstadisticas = async () => {
             chartTurnos.data.datasets[0].backgroundColor = [];
 
             data.forEach(r => {
-                chartTurnos.data.labels.push(r.puesto_nombre);
+                chartTurnos.data.labels.push(r.puesto);
                 chartTurnos.data.datasets[0].data.push(r.cantidad_turnos);
                 chartTurnos.data.datasets[0].backgroundColor.push(generateRandomColor());
             });
@@ -47,8 +47,7 @@ const generateRandomColor = () => {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
 
-    const rebColor = `rgb(${r}, ${g}, ${b})`;
-    return rebColor;
+    return `rgb(${r}, ${g}, ${b})`;
 };
 
-btnactualizar.addEventListener('click', getEstadisticas);
+btnActualizar.addEventListener('click', getEstadisticasTurnos);

@@ -6,18 +6,22 @@ use Exception;
 use Model\Turno;
 use MVC\Router;
 
-class DetalleController {
+class GraficaController {
 
     public static function estadisticas(Router $router){
         $router->render('turnos/estadisticas');
     }
    
-    public static function detallePuestosAPI(){
+    public static function turnosPorPuestoAPI(){
         try{
-            $sql = 'SELECT puesto_nombre, COUNT(turno_id) AS cantidad_turnos FROM turnos JOIN puestos ON turno_puesto = puesto_id GROUP BY puesto_nombre ORDER BY cantidad_turnos DESC';
-    
+            $sql = 'SELECT puesto_nombre AS puesto, COUNT(turno_id) AS cantidad_turnos
+                    FROM turnos
+                    JOIN puestos ON turno_puesto = puesto_id
+                    GROUP BY puesto_nombre
+                    ORDER BY cantidad_turnos DESC';
+            
             $datos = Turno::fetchArray($sql);
-    
+            
             echo json_encode($datos);
         } catch (Exception $e){
             echo json_encode([
@@ -27,6 +31,8 @@ class DetalleController {
             ]);
         }
     }
+    
 
 }
+
 
