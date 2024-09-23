@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/app.php';
 use MVC\Router;
 use Controllers\AppController;
 use Controllers\PuestoController;
+use Controllers\ReporteController;
 use Controllers\TurnoController;
 
 $router = new Router();
@@ -26,6 +27,9 @@ $router->get('/API/turno/buscar', [TurnoController::class, 'buscarAPI']);
 $router->post('/API/turno/guardar', [TurnoController::class, 'guardarAPI']);
 $router->post('/API/turno/modificar', [TurnoController::class, 'modificarAPI']);
 $router->post('/API/turno/eliminar', [TurnoController::class, 'eliminarAPI']);
+
+//reporte PDF
+$router->get('/pdf', [ReporteController::class,'pdf']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
