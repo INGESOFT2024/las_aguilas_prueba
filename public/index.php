@@ -36,8 +36,8 @@ $router->get('/pdf', [ReporteController::class,'pdf']);
 //$router->get('/turnos/estadisticas', [GraficaController::class, 'estadisticas']);
 //$router->get('/API/grafica/estadisticas', [GraficaController::class, 'turnosPorPuestoAPI']);
 
-$router->get('/API/detalle/turnosPorPuesto', [GraficaController::class, 'turnosPorPuestoAPI']);
-$router->get('/puestos/estadisticas', [GraficaController::class, 'estadisticas']);
+$router->get('/turnos/estadisticas', [GraficaController::class, 'estadisticas']);
+$router->get('/API/turnos/estadisticas', [GraficaController::class, 'turnosPorPuestoAPI']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
