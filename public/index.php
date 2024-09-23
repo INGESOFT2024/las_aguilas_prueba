@@ -32,10 +32,7 @@ $router->post('/API/turno/eliminar', [TurnoController::class, 'eliminarAPI']);
 //reporte PDF
 $router->get('/pdf', [ReporteController::class,'pdf']);
 
-//grafica 
-//$router->get('/turnos/estadisticas', [GraficaController::class, 'estadisticas']);
-//$router->get('/API/grafica/estadisticas', [GraficaController::class, 'turnosPorPuestoAPI']);
-
+//grafia Turnos
 $router->get('/turnos/estadisticas', [GraficaController::class, 'estadisticas']);
 $router->get('/API/turnos/estadisticas', [GraficaController::class, 'turnosPorPuestoAPI']);
 

@@ -12,4 +12,5 @@
     </div>
 </div>
 
-<script src="<?= asset('./build/js/turnos/estadisticas.js')?>"></script>
+<script src="<?= asset('./build/js/turno/estadisticas.js')?>"></script>
+
