@@ -21,7 +21,7 @@ class ReporteController {
             ]
             );
 
-        $sql = ActiveRecord::fetchArray("SELECT * FROM turnos");
+        $sql = ActiveRecord::fetchArray("SELECT turno_id, emp_nombre, puesto_nombre, turno_fecha_inicio, turno_fecha_fin FROM turnos JOIN empleado ON turno_empleado = emp_id JOIN puestos ON turno_puesto = puesto_id WHERE turno_situacion = 1;");
         $resultado = $sql;
 
         $html = $router->load('pdf/reporte',[

@@ -1,3 +1,4 @@
+
 <h1>Reporte desde la vista</h1>
 
 <table>
@@ -14,8 +15,8 @@
         <?php foreach ($resultado as $key => $turnos): ?>
             <tr>
                 <td><?= $key + 1 ?></td>
-                <td><?= $turnos['turno_empleado'] ?></td>
-                <td><?= $turnos['turno_puesto'] ?></td>
+                <td><?= $turnos['emp_nombre'] ?></td>
+                <td><?= $turnos['puesto_nombre'] ?></td>
                 <td><?= $turnos['turno_fecha_inicio'] ?></td>
                 <td><?= $turnos['turno_fecha_fin'] ?></td>
             </tr>
