@@ -1,14 +1,14 @@
 import { Dropdown } from "bootstrap";
 import { Chart } from "chart.js/auto";
 
-const canvas = document.getElementById('chartTurnos');
+const canvas = document.getElementById('chartPuestos');
 const ctx = canvas.getContext('2d');
 const btnactualizar = document.getElementById('actualizar');
 
 const data = {
     labels: [],
     datasets: [{
-        label: 'turnos',
+        label: 'puestos',
         data: [],
         borderWidth: 5,
         backgroundColor: []
@@ -33,8 +33,8 @@ const getEstadisticas = async () => {
             chartTurnos.data.datasets[0].backgroundColor = [];
 
             data.forEach(r => {
-                chartTurnos.data.labels.push(r.turnos);
-                chartTurnos.data.datasets[0].data.push(r.cantidad);
+                chartTurnos.data.labels.push(r.puesto_nombre);
+                chartTurnos.data.datasets[0].data.push(r.cantidad_turnos);
                 chartTurnos.data.datasets[0].backgroundColor.push(generateRandomColor());
             });
         }

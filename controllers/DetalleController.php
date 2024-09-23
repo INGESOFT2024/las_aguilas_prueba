@@ -12,19 +12,9 @@ class DetalleController {
         $router->render('turnos/estadisticas');
     }
    
-    public static function detalleTurnosAPI(){
+    public static function detallePuestosAPI(){
         try{
-            $sql = 'SELECT 
-                puesto_nombre, 
-                COUNT(turno_id) AS cantidad_turnos
-            FROM 
-                turnos
-            JOIN 
-                puestos ON turno_puesto = puesto_id
-            GROUP BY 
-                puesto_nombre
-            ORDER BY 
-                cantidad_turnos DESC';
+            $sql = 'SELECT puesto_nombre, COUNT(turno_id) AS cantidad_turnos FROM turnos JOIN puestos ON turno_puesto = puesto_id GROUP BY puesto_nombre ORDER BY cantidad_turnos DESC';
     
             $datos = Turno::fetchArray($sql);
     
@@ -39,3 +29,4 @@ class DetalleController {
     }
 
 }
+
