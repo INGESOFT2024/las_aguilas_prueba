@@ -1,7 +1,16 @@
+<div class="encabezado">
+    <div style="float: left;">
+        <img src="./images/AguilaLogo.png" alt="Logo Las Águilas" class="logo">
+    </div>
+    <div class="empresa-info">
+        <h1>Las Águilas S.A</h1>
+        <p>Seguridad y Vigilancia Privada</p>
+        <p>Dirección: 32 Calle 27-1 zona 5, Guatemala</p>
+        <p>Teléfono: +502 1234 5678 | Email: aguilas@lasaguilas.com</p>
+    </div>
+</div>
 
-<h1>Reporte desde la vista</h1>
-
-<table>
+<table class="tabla-detalles">
     <thead>
         <tr>
             <th>No.</th>
@@ -27,3 +36,8 @@
 <script>
     console.log(turnos)
 </script>
+
+<div class="pie">
+    <p>Gracias por confiar en nuestros servicios.</p>
+    <p>Las Águilas S.A - Seguridad y Vigilancia Privada</p>
+</div>
